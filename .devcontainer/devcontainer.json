@@ -1,0 +1,42 @@
+{
+    "name": ".NET in Codespaces",
+    "image": "mcr.microsoft.com/dotnet/sdk:8.0",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {
+            "version": "2"
+        },
+        "ghcr.io/devcontainers/features/powershell:1": {
+            "version": "latest"
+        },
+        "ghcr.io/azure/azure-dev/azd:0": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/common-utils:2": {},
+        "ghcr.io/devcontainers/features/dotnet:2": {
+            "version": "none",
+            "dotnetRuntimeVersions": "8.0",
+            "aspNetCoreRuntimeVersions": "8.0"
+        },
+        "ghcr.io/devcontainers-contrib/features/angular-cli:2": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.vscode-node-azure-pack",
+                "GitHub.copilot",
+                "GitHub.vscode-github-actions",
+                "ms-dotnettools.vscode-dotnet-runtime",
+                "ms-dotnettools.csdevkit",
+                "ms-dotnetools.csharp"
+            ]
+        }
+    },
+    "postCreateCommand": "chmod +x postCreateCommand.sh && ./postCreateCommand.sh",
+    "remoteEnv": {
+        "DOTNET_MULTILEVEL_LOOKUP": "0",
+        "TARGET": "net8.0",
+        "ConnectionStrings__Default":"Server=localhost;Database=BookStore;User ID=SA;Password=myPassw0rd;Encrypt=false",
+    }
+}
+ 
